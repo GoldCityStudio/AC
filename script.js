@@ -29,17 +29,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header scroll effect
+// Enhanced Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
     } else {
-        header.style.background = '#fff';
-        header.style.backdropFilter = 'none';
+        header.classList.remove('scrolled');
     }
 });
+
+// Add active state to navigation links based on scroll position
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -407,12 +429,10 @@ function debounce(func, wait) {
 const debouncedScrollHandler = debounce(() => {
     // Header scroll effect
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
     } else {
-        header.style.background = '#fff';
-        header.style.backdropFilter = 'none';
+        header.classList.remove('scrolled');
     }
     
     // Scroll to top button visibility
@@ -423,6 +443,9 @@ const debouncedScrollHandler = debounce(() => {
         scrollToTopBtn.style.opacity = '0';
         scrollToTopBtn.style.visibility = 'hidden';
     }
+    
+    // Update active navigation link
+    updateActiveNavLink();
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler);
