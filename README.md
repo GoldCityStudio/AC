@@ -15,6 +15,7 @@ A modern, responsive website for AC Guy (冷氣GUY), a Hong Kong-based air condi
 - **Mobile Menu**: Hamburger menu for mobile devices with smooth transitions
 - **Smooth Scrolling**: Anchor links with smooth scroll behavior
 - **Scroll to Top**: Floating button to return to the top of the page
+- **WhatsApp Integration**: Direct WhatsApp contact button with number 85270173695
 
 ### Content Sections
 1. **Hero Section**: Eye-catching landing area with call-to-action buttons
@@ -55,8 +56,31 @@ AC/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles and responsive design
 ├── script.js           # JavaScript functionality
-└── README.md           # Project documentation
+├── README.md           # Project documentation
+└── .github/workflows/  # GitHub Actions deployment
+    └── deploy.yml      # GitHub Pages deployment workflow
 ```
+
+## 🌐 Deployment
+
+### GitHub Pages (Recommended)
+This repository is configured for automatic deployment to GitHub Pages:
+
+1. **Repository Setup**: The code is already pushed to [https://github.com/GoldCityStudio/AC](https://github.com/GoldCityStudio/AC)
+2. **Enable GitHub Pages**:
+   - Go to repository Settings
+   - Navigate to "Pages" section
+   - Select "Deploy from a branch"
+   - Choose "gh-pages" branch
+   - Click "Save"
+3. **Automatic Deployment**: Every push to main branch triggers automatic deployment
+4. **Live URL**: Your site will be available at `https://goldcitystudio.github.io/AC/`
+
+### Manual Deployment
+For other hosting platforms:
+1. Upload all files to your web server
+2. Ensure `index.html` is in the root directory
+3. The website will work immediately
 
 ## 🎨 Design System
 
@@ -67,6 +91,7 @@ AC/
 - **Dark Gray**: `#1e293b` - Footer background
 - **Text Gray**: `#64748b` - Secondary text
 - **White**: `#ffffff` - Background and text
+- **WhatsApp Green**: `#25d366` - WhatsApp button
 
 ### Typography
 - **Font Family**: Noto Sans HK (Google Fonts)
@@ -111,6 +136,12 @@ Replace the Unsplash image URLs with your own images:
 <img src="your-image-url.jpg" alt="Description">
 ```
 
+### Changing WhatsApp Number
+Update the WhatsApp button number in `script.js`:
+```javascript
+whatsappBtn.href = 'https://wa.me/YOUR_NUMBER_HERE';
+```
+
 ## 🌐 Browser Support
 
 - ✅ Chrome 60+
@@ -137,6 +168,7 @@ Replace the Unsplash image URLs with your own images:
 
 The website displays the following contact information:
 - **Phone**: 2555 6622
+- **WhatsApp**: 85270173695 (direct button)
 - **Social Media**: Facebook, Instagram, YouTube links
 
 ## 🛠️ Development
@@ -152,6 +184,12 @@ The website displays the following contact information:
 - Check accessibility with screen readers
 - Validate HTML and CSS
 
+### Deployment Workflow
+1. Make changes to your local files
+2. Commit changes: `git add . && git commit -m "Description"`
+3. Push to GitHub: `git push origin main`
+4. GitHub Actions will automatically deploy to GitHub Pages
+
 ## 📄 License
 
 This project is created for educational and demonstration purposes. The design is inspired by [acguy.com.hk](https://acguy.com.hk/).
@@ -162,7 +200,12 @@ This project is created for educational and demonstration purposes. The design i
 - **Icons**: Font Awesome 6.0
 - **Fonts**: Google Fonts - Noto Sans HK
 - **Images**: Unsplash (placeholder images)
+- **Deployment**: GitHub Pages & GitHub Actions
 
 ---
 
-**冷氣GUY** - Your trusted air conditioning service partner in Hong Kong! 🏠❄️ 
+**冷氣GUY** - Your trusted air conditioning service partner in Hong Kong! 🏠❄️
+
+## 🔗 Live Demo
+
+Visit the live website: [https://goldcitystudio.github.io/AC/](https://goldcitystudio.github.io/AC/) 
